@@ -3,3 +3,147 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+@primary-color: #1c344f;
+@secondary-color: #eaeef2;
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+header {
+  display: flex;
+  height: 106px;
+
+  img {
+    max-width: 160px;
+  }
+
+  .pattern-wrapper {
+    background-image: url("./assets/padrao_escuro.png");
+    background-size: 100vw;
+    background-repeat: no-repeat;
+    width: 100%;
+  }
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+
+  h2 {
+    line-height: 110%;
+    font-size: 64px;
+  }
+
+  P {
+    line-height: 1.875;
+  }
+}
+
+.about {
+  background-color: @primary-color;
+  min-height: calc(100vh - 106px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__container {
+    color: @secondary-color;
+    max-width: 1024px;
+
+    h2 {
+      margin-bottom: 24px;
+    }
+
+    .paragraphs-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+  }
+}
+
+.mission {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  background-color: @secondary-color;
+
+  &__container {
+    display: grid;
+    max-width: 1024px;
+
+    @media (min-width: 760px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  article {
+    padding: 40px;
+    text-align: center;
+
+    h3 {
+      margin-bottom: 16px;
+    }
+
+    &:nth-child(odd) {
+      background-color: @secondary-color;
+      color: @primary-color;
+    }
+
+    &:nth-child(even) {
+      background-color: @primary-color;
+      color: @secondary-color;
+    }
+  }
+}
+
+footer {
+  background-color: @secondary-color;
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+
+  .contact {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    color: @primary-color;
+
+    &__options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      .contact-option {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        svg {
+          width: 32px;
+          height: 32px;
+        }
+      }
+    }
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  @media (min-width: 760px) {
+    .contact {
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+
+      img {
+        max-width: 320px;
+      }
+    }
+  }
+}
