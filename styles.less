@@ -14,7 +14,6 @@ body {
 header {
   display: flex;
   height: 106px;
-
   img {
     max-width: 160px;
   }
@@ -30,33 +29,76 @@ header {
 section {
   display: flex;
   flex-direction: column;
-  padding: 40px;
+  padding: 32px;
 
   h2 {
     line-height: 110%;
-    font-size: 64px;
+    font-size: 56px;
+    margin-bottom: 24px;
   }
 
   P {
     line-height: 1.875;
   }
+
+  @media (min-width: 760px) {
+    padding: 40px;
+
+    h2 {
+      font-size: 64px;
+    }
+  }
+}
+
+.home {
+  background-color: @primary-color;
+  min-height: calc(100vh - 106px);
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+  overflow-x: hidden;
+
+  &__container {
+    img {
+      width: 100%;
+    }
+
+    img.stone-image {
+      display: none;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    &__container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      img {
+        width: 45%;
+      }
+
+      img.stone-image {
+        display: block;
+        width: 200%;
+        margin-right: -5%;
+        animation: fromRight 1s;
+      }
+    }
+  }
 }
 
 .about {
-  background-color: @primary-color;
-  min-height: calc(100vh - 106px);
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: @secondary-color;
 
   &__container {
-    color: @secondary-color;
+    color: @primary-color;
     max-width: 1024px;
-
-    h2 {
-      margin-bottom: 24px;
-    }
 
     .paragraphs-wrapper {
       display: flex;
@@ -70,7 +112,7 @@ section {
   padding: 0;
   display: flex;
   align-items: center;
-  background-color: @secondary-color;
+  background-color: @primary-color;
 
   &__container {
     display: grid;
@@ -87,22 +129,59 @@ section {
 
     h3 {
       margin-bottom: 16px;
+      font-size: 24px;
     }
 
-    &:nth-child(odd) {
+    &:nth-child(even) {
       background-color: @secondary-color;
       color: @primary-color;
     }
 
-    &:nth-child(even) {
+    &:nth-child(odd) {
       background-color: @primary-color;
       color: @secondary-color;
     }
   }
 }
 
-footer {
+.services {
+  min-height: 100vh;
   background-color: @secondary-color;
+  color: @primary-color;
+  display: flex;
+  justify-content: center;
+
+  &__list {
+    display: grid;
+    gap: 24px;
+
+    article {
+      padding: 16px;
+      background-color: @primary-color;
+      color: @secondary-color;
+
+      h3 {
+        margin-bottom: 16px;
+        font-size: 24px;
+      }
+    }
+  }
+
+  @media (min-width: 760px) {
+    &__list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    &__list {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+
+footer {
+  background-color: @primary-color;
   display: flex;
   justify-content: center;
   padding: 40px;
@@ -111,7 +190,7 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    color: @primary-color;
+    color: @secondary-color;
 
     &__options {
       display: flex;
@@ -126,6 +205,10 @@ footer {
         svg {
           width: 32px;
           height: 32px;
+
+          path {
+            fill: @secondary-color;
+          }
         }
       }
     }
@@ -145,5 +228,17 @@ footer {
         max-width: 320px;
       }
     }
+  }
+}
+
+@keyframes fromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
   }
 }
