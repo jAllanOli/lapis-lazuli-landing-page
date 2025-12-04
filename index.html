@@ -11,6 +11,19 @@
       rel="stylesheet"
     />
     <link rel="stylesheet/less" type="text/css" href="styles.less" />
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-V3RDP2YK8F"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-V3RDP2YK8F");
+    </script>
   </head>
   <body>
     <header>
@@ -154,6 +167,53 @@
           </div>
         </div>
       </section>
+      <section class="products">
+        <h2>PRODUTOS</h2>
+        <div class="products__list">
+          <article>
+            <img src="./assets/capa-kit-rec-sel.png" alt="imagem produto" />
+            <h3>Kit - Recrutamento e Seleção Lazúli</h3>
+            <button
+              onclick="window.dataLayer.push({ event: 'clique_botao', label: 'botao_de_compra_kit_recrutamento_selecao' })"
+            >
+              Comprar agora
+              <a
+                onclick="return false;"
+                href="https://pay.hotmart.com/G99961962B?checkoutMode=2"
+                class="hotmart-fb hotmart__button-checkout"
+              ></a>
+            </button>
+          </article>
+          <article>
+            <img src="./assets/capa-kittreinalider.png" alt="imagem produto" />
+            <h3>Kit Profissional TreinaLíder</h3>
+            <button
+              onclick="window.dataLayer.push({ event: 'clique_botao', label: 'botao_de_compra_kit_treina_lider' })"
+            >
+              Comprar agora
+              <a
+                onclick="return false;"
+                href="https://pay.hotmart.com/A102258806I?checkoutMode=2"
+                class="hotmart-fb hotmart__button-checkout"
+              ></a>
+            </button>
+          </article>
+          <article>
+            <img src="./assets/kit-dinamicas.png" alt="imagem produto" />
+            <h3>Livro de Dinâmicas com material para impressão</h3>
+            <button
+              onclick="window.dataLayer.push({ event: 'clique_botao', label: 'botao_de_compra_livro_dinamicas' })"
+            >
+              Comprar agora
+              <a
+                onclick="return false;"
+                href="https://pay.hotmart.com/U102259737G?checkoutMode=2"
+                class="hotmart-fb hotmart__button-checkout"
+              ></a>
+            </button>
+          </article>
+        </div>
+      </section>
       <footer>
         <div class="contact">
           <img src="./assets/logo_branca_2.png" alt="logo" />
@@ -243,5 +303,18 @@
       </footer>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/less"></script>
+    <script type="text/javascript">
+      function importHotmart() {
+        var imported = document.createElement("script");
+        imported.src = "https://static.hotmart.com/checkout/widget.min.js";
+        document.head.appendChild(imported);
+        var link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        link.href = "https://static.hotmart.com/css/hotmart-fb.min.css";
+        document.head.appendChild(link);
+      }
+      importHotmart();
+    </script>
   </body>
 </html>
